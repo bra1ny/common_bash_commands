@@ -19,3 +19,7 @@ wget -qO - http://internet.yandex.ru | grep IPv4 | awk '{print($2,$3)}'
 cat $1 | wc -l
 
 
+4. Setup a web server with bash, refer to a_web_server_written_in_bash
+
+
+5. Count which file has the most number of lines
