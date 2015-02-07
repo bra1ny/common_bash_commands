@@ -1,8 +1,11 @@
-1. check file existence
-check_file_existence_1: CHECK_FILE_EXISTENCE(path/file)
+1. Check file existence
+check_file_existence_1: CHECK_FILE_EXISTENCE(file)
 
 
-2. get external IP
-get_external_IP: GET_EXTERNAL_IP(null)
+2. Get external IP
+get_external_IP_1: GET_EXTERNAL_IP(null)
 
 
+3. Count the number of lines of a file
+cat_1: CAT(file)
+wc_1: WC(cat_1.)

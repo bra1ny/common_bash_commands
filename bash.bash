@@ -1,4 +1,4 @@
-1. check file existence
+1. Check file existence
 #! /bin/bash
 file=$1
 if [ -e $file ]
@@ -9,7 +9,13 @@ else
 fi
 
 
-2. get external IP
+2. Get external IP
 #! /bin/bash
 wget -qO - http://internet.yandex.ru | grep IPv4 | awk '{print($2,$3)}'
+
+
+3. Count the number of lines of a file
+#! /bin/bash
+cat $1 | wc -l
+
 
