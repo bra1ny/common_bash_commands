@@ -1,5 +1,5 @@
 1. Check file existence
-check_file_existence_1: CHECK_FILE_EXISTENCE(file)
+check_file_existence_1: CHECK_FILE_EXISTENCE($file)
 
 
 2. Get external IP
@@ -7,7 +7,19 @@ get_external_IP_1: GET_EXTERNAL_IP(null)
 
 
 3. Count the number of lines of a file
-cat_1: CAT(file)
+cat_1: CAT($file)
 wc_1: WC(cat_1.)
 
 
+4. Setup a web server with bash, refer to a_web_server_written_in_bash
+
+
+5. Count which file has the most number of lines
+files: FILE($1)
+for_loop_1: FOR($files)
+cat_1: CAT(for_loop_1.)
+wc_1: WC(cat_1.)
+line_number: ASSIGN(wc_1)
+max_number: ASSIGN(0)
+if_1: IF($line_number gt $max_number)
+max_number: ASSIGN(line_number) // else?
