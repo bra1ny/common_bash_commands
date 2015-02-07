@@ -1,0 +1,67 @@
+FORMAT:
+Bash, followed by Bysh code
+
+=================================================
+1. Check file existence
+
+#! /bin/bash
+file=$1
+if [ -e $file ]
+then
+    echo -e "File $file exists"
+else
+    echo -e "File $file doesn't exists"
+fi
+
+
+$file_1: ASSIGN($1)
+if_1: IF(-e $file_1)
+if_1_true: IF_TRUE(if_1.)
+if_1_false: IF_FALSE(if_1.)
+
+=================================================
+2. Get external IP
+
+#! /bin/bash
+wget -qO - http://internet.yandex.ru | grep IPv4 | awk '{print($2,$3)}'
+
+
+wget_1: WGET(-qO, "http://internet.yandex.ru")
+grep_1: GREP(IPv4, wget_1.)
+awk_1: AWK('{print($2,$3)}', grep_1.)
+
+=================================================
+3. Setup a web server with bash, refer to a_web_server_written_in_bash
+
+=================================================
+4. Count which file has the most number of lines
+
+#!/bin/bash
+# param: an absolute address of a directory
+files=$1/*
+max_number=0
+
+for f in $files
+do
+  line_number=$(cat $f | wc -l)
+  echo "Number of lines of $f:$line_number"
+
+  if [ $line_number -gt $max_number ]; then
+    max_number=$line_number
+    echo "Now the max number of lines is:$max_number"
+  fi
+done
+
+echo "Now the max number of lines is:$max_number"
+
+
+files: FILE($1)
+for_loop_1: FOR($files)
+cat_1: CAT(for_loop_1.)
+wc_1: WC(cat_1.)
+line_number: ASSIGN(wc_1)
+max_number: ASSIGN(0)
+if_1: IF($line_number gt $max_number)
+max_number: ASSIGN(line_number) // else?
+
+=================================================
