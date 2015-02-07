@@ -9,3 +9,7 @@ else
 fi
 
 
+2. get external IP
+#! /bin/bash
+wget -qO - http://internet.yandex.ru | grep IPv4 | awk '{print($2,$3)}'
+

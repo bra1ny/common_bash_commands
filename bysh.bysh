@@ -1,3 +1,8 @@
 1. check file existence
-check_file_existence_1 : CHECK_FILE_EXISTENCE(path/file)
+check_file_existence_1: CHECK_FILE_EXISTENCE(path/file)
+
+
+2. get external IP
+get_external_IP: GET_EXTERNAL_IP(null)
+
 
